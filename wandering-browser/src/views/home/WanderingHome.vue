@@ -14,8 +14,13 @@
         <el-link type="info">班级</el-link>
         <el-link type="info" href="https://github.com/ShenJinyong/wandering" target="_blank">友链</el-link>
       </el-col>
-      <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :span="2"><div class="grid-content bg-purple"></div></el-col>
+      <el-col :span="4" class="wandering-search">
+        <el-input v-model="input" placeholder="代码改变世界"></el-input>
+      </el-col>
+      <el-col :span="2" class="wandering-login">
+        <el-link type="primary">注册</el-link>
+        <el-link type="success">登录</el-link>
+      </el-col>
     </el-row>
   </el-header>
   <el-container>
@@ -37,8 +42,14 @@
 
 <script>
 export default {
-  name: 'WanderingHome'
+  name: 'WanderingHome',
+  data() {
+    return {
+      input: ''
+    }
+  }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -79,21 +90,28 @@ export default {
     line-height: 52px;
   }
 
-  /* 首页 */
+  /* 首页链接 */
   .wandering-home {
     text-align: left;
     line-height: 52px;
   }
-
   .wandering-home .el-link{
     margin-left: 40px;  
   }
 
-  .bg-purple {
+  /* 搜索框 */
+  .wandering-search .el-input {
+    margin-top: 15px;
     background: #d3dce6;
-    height: 52px;
   }
 
-
+  /* 注册登录 */
+  .wandering-login {
+    text-align: left;
+    line-height: 52px; 
+  }
+  .wandering-login .el-link{
+    margin-left: 20px;  
+  }
 
 </style>
