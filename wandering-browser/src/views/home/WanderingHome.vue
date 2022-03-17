@@ -209,7 +209,30 @@
       </el-card>
     </el-main>
     <el-aside width="300px">
-
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>卡片名称</span>
+        </div>
+        <div v-for="o in 4" :key="o" class="text item">
+          {{o +'列表内容 ' }}
+        </div>
+      </el-card>
+            <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>卡片名称</span>
+        </div>
+        <div v-for="o in 4" :key="o" class="text item">
+          {{o +'列表内容 ' }}
+        </div>
+      </el-card>
+            <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>卡片名称</span>
+        </div>
+        <div v-for="o in 4" :key="o" class="text item">
+          {{o +'列表内容 ' }}
+        </div>
+      </el-card>
     </el-aside>
   </el-container>
   <el-footer>
@@ -295,10 +318,13 @@ export default {
   .item {
     margin-top: 10px;
     margin-right: 40px;
+    margin-bottom: 18px;
   }
 
+  /* 页脚 */
   .el-footer {
     text-align: center;
     color: red;
   }
+
 </style>
