@@ -213,7 +213,7 @@
     </el-aside>
   </el-container>
   <el-footer>
-
+    <span>启创工作室出品，必属精品！！！</span>
   </el-footer>
 </el-container>
 </template>
@@ -239,9 +239,8 @@ export default {
 
   /* 页脚样式 */
   .el-footer {
-    background-color: #B3C0D1;
+    background-color: #d3dce6;
     height: 52px;
-    
   }
   
   /* 主题样式 */
@@ -298,4 +297,8 @@ export default {
     margin-right: 40px;
   }
 
+  .el-footer {
+    text-align: center;
+    color: red;
+  }
 </style>
