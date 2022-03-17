@@ -23,9 +23,41 @@
       </el-col>
     </el-row>
   </el-header>
+
   <el-container>
     <el-aside width="200px">
-
+      <ul>
+        <li>
+          <span>分类</span>
+        </li>
+        <li>
+          <span>精华</span>
+        </li>
+        <li>
+          <span>候选</span>
+        </li>
+        <li>
+          <el-divider></el-divider>
+        </li>
+        <li>
+          <span>订阅</span>
+        </li>
+        <li>
+          <span>关注</span>
+        </li>
+        <li>
+          <span>我赞</span>
+        </li>
+        <li>
+          <span>更多</span>
+        </li>
+        <li>
+          <el-divider></el-divider>
+        </li>
+        <li>
+          <span>反馈</span>
+        </li>
+      </ul>
     </el-aside>
     <el-main>
 
@@ -68,7 +100,6 @@ export default {
   
   /* 侧边栏样式 */
   .el-aside {
-    background-color: #D3DCE6;
     height: 1000px;
   }
   
@@ -112,6 +143,13 @@ export default {
   }
   .wandering-login .el-link{
     margin-left: 20px;  
+  }
+
+  /* 无序列表去掉点 */
+  .el-container .el-aside ul li{
+    list-style: none;
+    line-height: 36px; 
+    text-align: center;
   }
 
 </style>
