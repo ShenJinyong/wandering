@@ -50,7 +50,7 @@ public class GeneratorCodeTests {
                 // 3.包配置
                 .packageConfig((scanner, builder) -> builder
                         // 设置父包名
-                        .parent("com.example")
+                        .parent("com.pxxy.wandering")
                         // 设置模块名
                         .moduleName(scanner.apply("请输入模块名？"))
                         // pojo 实体类

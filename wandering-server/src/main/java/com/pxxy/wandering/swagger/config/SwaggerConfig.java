@@ -22,7 +22,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.core.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.pxxy.wandering.core.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .groupName("沈金勇")
