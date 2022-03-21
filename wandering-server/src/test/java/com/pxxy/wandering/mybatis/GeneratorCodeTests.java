@@ -54,7 +54,7 @@ public class GeneratorCodeTests {
                         // 设置模块名
                         .moduleName(scanner.apply("请输入模块名？"))
                         // pojo 实体类
-                        .entity("entity.dao")
+                        .entity("entity.po")
                         // Service 包名
                         .service("service")
                         // ***ServiceImpl 包名
@@ -104,7 +104,7 @@ public class GeneratorCodeTests {
 
                         // 实体类策略配置
                         .entityBuilder()
-                        .formatFileName("%sDao")
+                        .formatFileName("%sPo")
                         // 开启 Lombok
                         .enableLombok()
                         // 不实现 Serializable 接口，不生成 SerialVersionUID
