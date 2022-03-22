@@ -1,10 +1,8 @@
 package com.pxxy.wandering.core.controller;
 
 import com.pxxy.wandering.core.entity.dto.DepartmentDto;
-import com.pxxy.wandering.core.entity.dto.DepartmentTree;
 import com.pxxy.wandering.core.entity.po.DepartmentPo;
 import com.pxxy.wandering.core.service.DepartmentService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,5 +41,6 @@ public class DepartmentController {
             return "创建部门失败";
         }
     }
+
 
 }
