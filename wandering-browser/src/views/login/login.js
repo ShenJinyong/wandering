@@ -7,4 +7,4 @@ import Login from './login.vue'
 const app = createApp(Login)
 
 app.use(ElementPlus,{ size: 'small', zIndex: 3000 })
-app.mount('#app')
+app.mount('#login')
