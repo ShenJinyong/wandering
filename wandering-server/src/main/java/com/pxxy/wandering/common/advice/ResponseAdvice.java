@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Slf4j
-@ControllerAdvice(basePackages = "com.pxxy.wandering.binlog.controller")
+@ControllerAdvice(basePackages = "com.pxxy.wandering.blog.controller")
 public class ResponseAdvice implements ResponseBodyAdvice {
 
     @Resource

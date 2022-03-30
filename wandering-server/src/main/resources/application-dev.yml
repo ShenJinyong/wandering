@@ -32,6 +32,6 @@ binlog:
   username: root
   password: 123456
   db: wandering
-  table: user
+  table: blog_type
   consumerThreads: 5
   queueSleep: 1000
