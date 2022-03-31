@@ -1,17 +1,16 @@
-import request from '@/utils/new-request'
+import request from '@/utils/request'
 
 export function selectAllBlogType() {
   return request({
-    url: '/blog/blogTypePo/selectAll',
-    method: 'get',
-    data
+    url: '/wandering/blog/blogTypePo/selectAll',
+    method: 'get'
   })
 }
 
-export function selectAllBlogType(data) {
-    return request({
-      url: '/blog/blogTypePo/create',
-      method: 'post',
-      data: this.data
-    })
-  }
+export function createBlogType(data) {
+  return request({
+    url: '/wandering/blog/blogTypePo/create',
+    method: 'post',
+    data: this.data
+  })
+}

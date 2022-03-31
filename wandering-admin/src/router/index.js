@@ -47,7 +47,7 @@ export const constantRoutes = [
       },
       {
         path: '/blog/type',
-        component: () => import('@/views/blog/tag'),
+        component: () => import('@/views/blog/type'),
         meta: { title: '博客类型', icon: 'dashboard' }
       },
       {

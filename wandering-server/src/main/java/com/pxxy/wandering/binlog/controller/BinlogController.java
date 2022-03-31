@@ -18,4 +18,5 @@ public class BinlogController {
     public void CheckBinLogConfig(){
         log.info("查看BinLog配置信息：{}",binLogConfig.toString());
     }
+
 }

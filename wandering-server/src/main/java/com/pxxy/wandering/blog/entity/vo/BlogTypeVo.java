@@ -30,13 +30,13 @@ public class BlogTypeVo {
      * 根据 PO 创建 VO 对象
      * */
     public static BlogTypeVo formBlogTypePo(BlogTypePo blogTypePo){
-        return new Converter().convertToVO(blogTypePo);
+        return new Converter().convertToVo(blogTypePo);
     }
 
     private static class Converter implements IConverter<BlogTypePo,BlogTypeVo>{
 
         @Override
-        public BlogTypeVo convertToVO(BlogTypePo blogTypePo) {
+        public BlogTypeVo convertToVo(BlogTypePo blogTypePo) {
             final BlogTypeVo blogTypeVo = new BlogTypeVo();
             BeanUtils.copyProperties(blogTypePo,blogTypeVo);
             return blogTypeVo;
