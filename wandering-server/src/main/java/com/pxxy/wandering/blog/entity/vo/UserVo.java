@@ -1,34 +1,22 @@
-package com.pxxy.wandering.blog.entity.po;
+package com.pxxy.wandering.blog.entity.vo;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.Version;
-import java.util.Date;
-
-import com.pxxy.wandering.blog.entity.dto.UserDto;
+import com.baomidou.mybatisplus.annotation.*;
+import com.pxxy.wandering.blog.entity.po.UserPo;
 import com.pxxy.wandering.blog.util.IConverter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.catalina.User;
 import org.springframework.beans.BeanUtils;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author 沈金勇
- * @since 2022-03-30 03:49:29
- */
+import java.util.Date;
+
 @Getter
 @Setter
 @TableName("user")
-@ApiModel(value = "UserPo对象", description = "")
-public class UserPo {
+@ApiModel(value = "UserVo对象", description = "")
+public class UserVo {
 
     @ApiModelProperty("用户主键")
     @TableId("id")
@@ -70,30 +58,21 @@ public class UserPo {
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
-    @ApiModelProperty("乐观锁")
-    @TableField("version")
-    @Version
-    private Integer version;
-
-    @ApiModelProperty("逻辑删除")
-    @TableField("deleted")
-    @TableLogic
-    private Integer deleted;
-
     /**
-     * 根据 Dto 创建 Po 对象
-     * */
-    public static UserPo formUserDto(UserDto userDto){
-        return  new Converter().convert(userDto);
+     * 根据 PO 创建 VO 对象
+     */
+    public static UserVo formUserPo(UserPo userPo){
+        return new Converter().convert(userPo);
     }
 
-    private static class Converter implements IConverter<UserDto,UserPo> {
+    private static class Converter implements IConverter<UserPo,UserVo> {
 
         @Override
-        public UserPo convert(UserDto userDto) {
-            UserPo userPo = new UserPo();
-            BeanUtils.copyProperties(userDto,userPo);
-            return userPo;
+        public UserVo convert(UserPo userPo) {
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(userPo,userVo);
+            return userVo;
         }
     }
+
 }

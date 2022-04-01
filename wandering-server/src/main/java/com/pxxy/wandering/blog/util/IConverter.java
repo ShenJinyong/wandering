@@ -4,5 +4,6 @@ public interface IConverter<T,E> {
     /**
      * VO 转换函数
      * */
-    E convertToVo(T t);
+    E convert(T t);
+
 }

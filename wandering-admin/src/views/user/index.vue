@@ -1,6 +1,6 @@
 <template>
-  <div class="dashboard-container">
-    数据统计
+  <div class="app-container">
+    用户管理
   </div>
 </template>
 
@@ -8,5 +8,5 @@
 
 export default {
 }
-</script>
 
+</script>

@@ -29,13 +29,13 @@ public class BlogTagVo {
      * 根据 PO 创建 VO 对象
      * */
     public static BlogTagVo formBlogTagPo(BlogTagPo blogTagPo){
-        return new Converter().convertToVo(blogTagPo);
+        return new Converter().convert(blogTagPo);
     }
 
     private static class Converter implements IConverter<BlogTagPo,BlogTagVo>{
 
         @Override
-        public BlogTagVo convertToVo(BlogTagPo blogTagPo) {
+        public BlogTagVo convert(BlogTagPo blogTagPo) {
             BlogTagVo blogTagVo = new BlogTagVo();
             BeanUtils.copyProperties(blogTagPo,blogTagVo);
             return blogTagVo;
