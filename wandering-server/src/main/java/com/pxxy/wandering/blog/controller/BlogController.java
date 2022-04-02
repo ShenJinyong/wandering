@@ -2,13 +2,13 @@ package com.pxxy.wandering.blog.controller;
 
 import com.pxxy.wandering.blog.entity.dto.BlogDto;
 import com.pxxy.wandering.blog.entity.po.BlogPo;
+import com.pxxy.wandering.blog.entity.vo.BlogVo;
+import com.pxxy.wandering.blog.entity.vo.UserVo;
 import com.pxxy.wandering.blog.service.impl.BlogServiceImpl;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -30,4 +30,8 @@ public class BlogController {
         blogService.save(new BlogPo().formBogDto(blogDto));
     }
 
+    @GetMapping("/selectAll")
+    public List<BlogVo> selectAll(){
+        return blogService.selectAll();
+    }
 }
