@@ -7,10 +7,14 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
 import java.util.Date;
+
+import com.pxxy.wandering.blog.entity.dto.BlogDto;
+import com.pxxy.wandering.blog.util.IConverter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
 /**
  * <p>
@@ -35,8 +39,8 @@ public class BlogPo {
     private String title;
 
     @ApiModelProperty("博客首图")
-    @TableField("firstPicyure")
-    private String firstPicyure;
+    @TableField("firstPicture")
+    private String firstPicture;
 
     @ApiModelProperty("博客摘要")
     @TableField("description")
@@ -84,5 +88,22 @@ public class BlogPo {
     @TableLogic
     private Integer deleted;
 
+    /**
+     * 根据 Dto 创建 Po 对象
+     * */
+    public static BlogPo formBogDto(BlogDto blogDto){
+        return new Converter().convert(blogDto);
+    }
+
+    private static class  Converter implements IConverter<BlogDto,BlogPo> {
+
+        @Override
+        public BlogPo convert(BlogDto blogDto) {
+            BlogPo blogPo = new BlogPo();
+            BeanUtils.copyProperties(blogDto,blogPo);
+            blogPo.setUserId("1509806809358680065");
+            return blogPo;
+        }
+    }
 
 }
