@@ -13,8 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>wandering-server</name>
     <description>wandering-server</description>
+
     <properties>
         <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
     </properties>
     <dependencies>
         <!--springboot-->
@@ -55,7 +57,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.47</version>
+            <version>8.0.28</version>
         </dependency>
         <!--lombok-->
         <dependency>
@@ -80,4 +82,152 @@
         </dependency>
     </dependencies>
 
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env.devMode>dev</env.devMode>
+                <skipAssemblyDEV>false</skipAssemblyDEV>
+                <skipAssemblyPRE>true</skipAssemblyPRE>
+                <skipAssemblyPRO>true</skipAssemblyPRO>
+                <skipAssemblyTEST>true</skipAssemblyTEST>
+            </properties>
+        </profile>
+        <profile>
+            <id>pre</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env.devMode>pre</env.devMode>
+                <skipAssemblyDEV>true</skipAssemblyDEV>
+                <skipAssemblyPRE>false</skipAssemblyPRE>
+                <skipAssemblyPRO>true</skipAssemblyPRO>
+                <skipAssemblyTEST>true</skipAssemblyTEST>
+            </properties>
+        </profile>
+        <profile>
+            <id>pro</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env.devMode>pro</env.devMode>
+                <skipAssemblyDEV>true</skipAssemblyDEV>
+                <skipAssemblyPRE>true</skipAssemblyPRE>
+                <skipAssemblyPRO>false</skipAssemblyPRO>
+                <skipAssemblyTEST>true</skipAssemblyTEST>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env.devMode>test</env.devMode>
+                <skipAssemblyDEV>true</skipAssemblyDEV>
+                <skipAssemblyPRE>true</skipAssemblyPRE>
+                <skipAssemblyPRO>true</skipAssemblyPRO>
+                <skipAssemblyTEST>false</skipAssemblyTEST>
+            </properties>
+        </profile>
+    </profiles>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!--项目启动类-->
+                            <mainClass>com.pxxy.wandering.WanderingServerApplication</mainClass>
+                            <!--依赖的jar的目录前缀-->
+                            <classpathPrefix>./lib</classpathPrefix>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                    <excludes>
+                        <exclude>application.yml</exclude>
+                        <exclude>application-*.yml</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <!--The identifier of this execution for labelling the goals during the build-->
+                        <id>make-assembly-dev</id>
+                        <!--The build lifecycle phase to bind the goals in this execution to 指定其编译阶段-->
+                        <phase>package</phase>
+                        <goals>
+                            <!--The goals to execute with the given configuration-->
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <!--profile声明参数调用-->
+                            <skipAssembly>${skipAssemblyDEV}</skipAssembly>
+                            <descriptors>
+                                <!--加载指定的assembly配置文件-->
+                                <descriptor>src/main/assembly/dev/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!--The identifier of this execution for labelling the goals during the build-->
+                        <id>make-assembly-pre</id>
+                        <!--The build lifecycle phase to bind the goals in this execution to 指定其编译阶段-->
+                        <phase>package</phase>
+                        <goals>
+                            <!--The goals to execute with the given configuration-->
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <!--profile声明参数调用-->
+                            <skipAssembly>${skipAssemblyPRE}</skipAssembly>
+                            <descriptors>
+                                <!--加载指定的assembly配置文件-->
+                                <descriptor>src/main/assembly/pre/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/assembly</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>

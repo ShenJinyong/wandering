@@ -10,7 +10,7 @@ spring:
   # 数据源
   datasource:
     url: jdbc:mysql://124.70.38.234:3306/wandering?useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
 
