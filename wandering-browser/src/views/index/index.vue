@@ -1,12 +1,18 @@
 <template>
-    <div>
-        <a href="login.html">跳转到登录页面</a>
-    </div>
+  <!--顶部导航栏-->
+  <Navbar />
+  <router-view/>
 </template>
 
 <script>
+import Navbar from "../../components/Navbar.vue";
 export default {
-  name: 'WanderingIndex'
+  name: 'WanderingIndex',
+  components: { Navbar },
+  data() {
+    return {
+    }
+  }
 }
 
 </script>

@@ -29,11 +29,6 @@
           {{ scope.row.firstPicture }}
         </template>
       </el-table-column>
-      <el-table-column label="内容">
-        <template slot-scope="scope">
-          {{ scope.row.content }}
-        </template>
-      </el-table-column>
       <el-table-column label="类型">
         <template slot-scope="scope">
           {{ scope.row.typeId }}
