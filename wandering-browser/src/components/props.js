@@ -3,6 +3,11 @@ import Navbar from './Navbar'
 
 export default class App extends Component {
   render() {
+    // 上面父组件传来的一个对象
+    var obj = {
+      title:"测试",
+      leftshow:false
+    }
     return (
       <div>
           <div>
@@ -17,6 +22,10 @@ export default class App extends Component {
               <h2>购物车</h2>
               <Navbar title="购物车" leftshow={true}></Navbar>
           </div>
+
+          <Navbar title={obj.title} leftshow={obj.leftshow}></Navbar>
+
+          <Navbar {...obj}></Navbar>
       </div>
     )
   }

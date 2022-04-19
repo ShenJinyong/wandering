@@ -3,6 +3,7 @@ import ReactPropTypes from 'prop-types'
 
 export default class Navbar extends Component {
   render() {
+
     let {title,leftshow} = this.props
     return (
       <div>
@@ -14,8 +15,15 @@ export default class Navbar extends Component {
   }
 }
 
+// 默认值
+Navbar.defaultProps = {
+  leftshow:true
+}
+
 //类属性
 Navbar.propTypes = {
   title: ReactPropTypes.string,
   leftshow: ReactPropTypes.bool
 }
+
+
