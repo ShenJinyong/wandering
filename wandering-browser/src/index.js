@@ -1,6 +1,6 @@
 // After
 import { createRoot } from 'react-dom/client';
-import App from './life/diff.js';
+import App from './shuffling/swiper.js';
 
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript

@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 
 class Box extends Component{
+
+    shouldComponentUpdate(nextProps){
+        if(this.props.current === this.props.index || nextProps.current === nextProps.index){
+            return true
+        }
+        return false
+    }
     render(){
-        return <div style={{width:"100px",height:"100px",border:"1px solid gray",margin:"10px",float:"left"}}>
+        return <div style={{width:"100px",height:"100px",border:this.props.current===this.props.index?"1px solid red":"1px solid gray",margin:"10px",float:"left"}}>
         </div>
     }
 }
@@ -15,7 +22,11 @@ export default class App extends Component {
   render() {
     return (
       <div>
-          <input type="number"></input>
+          <input type="number" onChange={(evt)=>{
+              this.setState({
+                current:Number(evt.target.value)
+              })
+          }} value={this.state.current}></input>
             <div style={{overflow:"hidden"}}>
                 {
                     this.state.list.map((item,index)=><Box key={item} current={this.state.current} index={index}></Box>)
