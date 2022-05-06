@@ -1,17 +1,15 @@
 # 流浪所
 
-## 博客预览
-
-博客地址：
-
-后台管理：
-
 开源不易，项目长期维护，欢迎star！
 
-## 简介
+## 仓库地址
 
-## 项目架构
+文档汇总：https://github.com/ShenJinyong/wandering
 
-## 技术架构
+前台地址：https://github.com/ShenJinyong/wandering-brower
 
-## 功能架构
+后台地址：https://github.com/ShenJinyong/wandering-admin
+
+后端地址：https://github.com/ShenJinyong/wandering-server
+
+## 
